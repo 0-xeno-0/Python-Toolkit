@@ -1,0 +1,12 @@
+#!/usr/bin/env python
+import Vauln_Scanner
+
+target_url = "URL"
+links_to_ignore = ["logout link"]
+
+data_dict = {"username": "admin","password": "passwd", "Login": "submit"}
+
+vuln_scanner = Vauln_Scanner.Scanner(target_url)
+vuln_scanner.session.post("http://url", data=data_dict)
+vuln_scanner.crawl()
+vuln_scanner.run_scanner()

